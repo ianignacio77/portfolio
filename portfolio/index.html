@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haedrian Bernardino | Portfolio</title>
+  
+  <link rel="icon" type="image/png" href="assets/nav/2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="nav-container">
+    <nav>
+      <a href="#hero" class="brand">
+        <img src="assets/nav/1.png" alt="Logo" class="brand-logo-img">
+        <span>Haedrian I. Bernardino</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">About</a></li>
+        <li><a href="#works">Academic Works</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+
+  <main class="dashboard-wrapper" id="hero">
+    
+    <section class="panel-container profile-card">
+      <div class="window-controls"><span></span><span></span><span></span></div>
+      <span class="badge-tag"><span class="bullet-dot"></span> HI THERE, I AM!</span>
+      
+      <div class="hero-header">
+        <div class="hero-left-col">
+          <h1 class="serif-title"><br>Haedrian<br><em>Bernardino</em></h1>
+          <p class="summary-text">
+            Information technology student with experience in project management, quality assurance, and software development for academic and web-based systems. Involved in planning and coordinating project tasks, validating system functionality, identifying and documenting bugs, and supporting development workflows to ensure reliable and well-structured applications.
+          </p>
+        </div>
+        <div class="image-frame">
+          <img src="assets/ian.png" alt="Haedrian Bernardino" class="profile-photo">
+          <div class="image-label">PM / QA</div>
+        </div>
+      </div>
+      
+      <div class="bullet-row"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      
+      <div class="action-buttons">
+        <a href="#works" class="btn-filled">View My Works</a>
+        <a href="resume.pdf" download class="btn-outlined">Download Resume</a>
+        <a href="#contact" class="btn-clear">Get In Touch</a>
+      </div>
+      
+      <div class="pills-scrollbox" id="hero-pills-container"></div>
+      
+      <div class="stats-counter-grid">
+        <div class="stat-item">
+          <span class="stat-label">ACADEMIC PROJECTS</span>
+          <span class="stat-value">10+</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">CERTIFICATIONS</span>
+          <span class="stat-value">06</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">SEMINARS ATTENDED</span>
+          <span class="stat-value">10</span>
+        </div>
+      </div>
+      
+      <div class="explore-hint">
+        <div class="mouse-icon"><span></span></div>
+        <span>SCROLL TO EXPLORE</span>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="section-wrapper" id="works">
+    <div class="section-label-header">
+      <span class="label-index">ACADEMIC WORKS</span>
+      <h2 class="main-section-title">Project Highlights</h2>
+      <p class="section-subtitle">This section highlights the capstone and general projects I've built during my academic journey.</p>
+    </div>
+    
+    <div class="theater-showcase-box">
+      <div class="theater-header">
+        <span class="badge-tag"><span class="bullet-dot"></span> GENERAL PROJECTS</span>
+        <div class="slider-controls">
+          <span class="slider-index" id="project-counter">01 / 03</span>
+          <button class="arrow-btn" onclick="prevProject()">←</button>
+          <button class="arrow-btn" onclick="nextProject()">→</button>
+        </div>
+      </div>
+      
+      <div class="theater-body-grid">
+        <div class="theater-media-frame">
+          <div class="media-mockup">
+            <div class="mockup-banner" id="project-thumb-box"></div>
+            <h3 class="mockup-inner-title" id="project-mock-title">PLV ALUMNET</h3>
+          </div>
+        </div>
+        
+        <div class="theater-info-panel">
+          <span class="project-idx" id="project-idx-el">01</span>
+          <h3 class="project-main-name" id="project-name-el">PLV-AlumNet Website</h3>
+          <span class="project-category-tag" id="project-type-el">WEB PLATFORM / CAPSTONE PROJECT</span>
+          <p class="project-description-text" id="project-desc-el">A centralized web framework and career support platform mapping structural alumni demographics using Agile methodologies and Relational DB logic.</p>
+          
+          <div class="contribution-box">
+            <h4>KEY CONTRIBUTION</h4>
+            <p id="project-contribution-el">Architected the front-end dashboard workflows, mapped comprehensive physical data models for student section tracing, and formulated structural optimization interfaces.</p>
+          </div>
+          
+          <div class="project-tags-row" id="project-tags-el"></div>
+          
+          <div class="theater-actions">
+            <a href="#contact" class="btn-filled">View System</a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="preview-strip-grid" id="project-strip"></div>
+    </div>
+
+    <div class="secondary-projects-header">
+      <span class="badge-tag"><span class="bullet-dot"></span> OTHER PROJECTS &amp; ACTIVITIES</span>
+      <p>These additional projects showcase structural diversity across technical stacks and assignments.</p>
+    </div>
+    <div id="other-projects-container"></div>
+  </section>
+
+
+  <section class="section-wrapper" id="certifications">
+    <div class="section-label-header">
+      <span class="label-index">CREDENTIALS</span>
+      <h2 class="main-section-title">Certifications &amp; Seminars</h2>
+      <p class="section-subtitle">Tap any card to view it in full.</p>
+    </div>
+
+    <div class="creds-tab-bar">
+      <button class="creds-tab active" onmouseenter="switchCredsTab('trainings')">
+        <span class="bullet-dot"></span> Trainings &amp; Certifications
+      </button>
+      <button class="creds-tab" onmouseenter="switchCredsTab('seminars')">
+        <span class="bullet-dot"></span> Seminars Attended
+      </button>
+    </div>
+
+    <div class="creds-tab-panel active" id="tab-trainings">
+      <div class="certs-scroll-row" id="certs-container"></div>
+    </div>
+
+    <div class="creds-tab-panel" id="tab-seminars">
+      <div class="certs-scroll-row" id="seminars-container"></div>
+    </div>
+  </section>
+
+  
+
+  <!-- Lightbox Modal -->
+  <div class="cert-lightbox" id="cert-lightbox">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-card">
+      <button class="lightbox-close" id="lightbox-close">✕</button>
+      <img src="" alt="" id="lightbox-img">
+      <div class="lightbox-meta">
+        <h3 id="lightbox-title"></h3>
+        <span id="lightbox-issuer"></span>
+        <span id="lightbox-date"></span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section-wrapper" id="contact">
+    <div class="contact-panel-card">
+      <span class="badge-tag"><span class="bullet-dot"></span> CONTACT CHANNELS</span>
+      <h2 class="serif-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Feel free to reach out!</h2>
+      <p style="color: var(--text-muted); margin-bottom: 2rem;">Here are my contact details and professional links. Let’s build something meaningful together.</p>
+      
+      <div class="contact-links-stack">
+        <a href="mailto:haedrianbernardino4@gmail.com" class="contact-item-row">
+          <div class="contact-icon-avatar">✉</div>
+          <div>
+            <span class="contact-label">EMAIL ADDRESS</span>
+            <strong>haedrianbernardino4@gmail.com</strong>
+          </div>
+        </a>
+        <a href="tel:+639765315569" class="contact-item-row">
+          <div class="contact-icon-avatar">📞</div>
+          <div>
+            <span class="contact-label">CONTACT NUMBER</span>
+            <strong>(+63) 976-531-5569</strong>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/haedrian-bernardino-128737405/" target="_blank" class="contact-item-row">
+          <div class="contact-icon-avatar">💼</div>
+          <div>
+            <span class="contact-label">LINKEDIN PROFILE</span>
+            <strong>Haedrian Bernardino</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <div class="minimal-footer">
+      <span>HAEDRIAN BERNARDINO © 2026</span>
+    </div>
+  </section>
+
+  <button id="backToTopBtn" class="back-to-top-floating" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
