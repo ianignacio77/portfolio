@@ -766,7 +766,7 @@ function initScrollReveal() {
     { sel: '.window-controls',       cls: 'reveal-fade-up' },
     { sel: '.badge-tag',             cls: 'reveal-fade-up', delay: 1 },
     { sel: '.hero-left-col',         cls: 'reveal-fade-up', delay: 2 },
-    { sel: '.image-frame',           cls: 'reveal-fade-left', delay: 3 },
+    // .image-frame excluded — float animation handles its own entrance
     { sel: '.bullet-row',            cls: 'reveal-fade-up', delay: 3 },
     { sel: '.action-buttons',        cls: 'reveal-fade-up', delay: 4 },
     { sel: '.pills-scrollbox',       cls: 'reveal-fade-up', delay: 5 },
