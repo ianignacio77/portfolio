@@ -1354,15 +1354,37 @@ nav .brand-logo-img {
   /* Theater */
   .theater-showcase-box { padding: 1.25rem; }
   .theater-media-frame { padding: 1.5rem; }
-  .preview-strip-grid { grid-template-columns: 1fr; }
-  .strip-preview-image { width: 72px; height: 72px; }
-  .strip-details h4 { font-size: 0.92rem; }
+  .preview-strip-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .strip-node {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+  .strip-preview-image { width: 64px; height: 64px; border-radius: 10px; }
+  .strip-details h4 { font-size: 0.88rem; }
+  .strip-details p { font-size: 0.72rem; }
+  .strip-project-label { font-size: 0.62rem; }
   .project-main-name { font-size: 1.6rem; }
 
-  /* Other projects */
+  /* Theater actions buttons — stack on mobile */
+  .theater-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .theater-actions .btn-filled {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Other projects carousel */
   .other-projects-deck { grid-template-columns: 1fr; }
-  .carousel-track .deck-card { flex: 0 0 100%; }
   .deck-image { height: 200px; }
+
+  /* Carousel controls — better tap targets on mobile */
+  .carousel-controls { gap: 0.75rem; }
+  .carousel-arrow { width: 38px; height: 38px; font-size: 1rem; }
 
   /* Certs tabs */
   .creds-tab-bar { flex-direction: column; border-bottom: none; gap: 0.4rem; }
@@ -1400,6 +1422,18 @@ nav .brand-logo-img {
   .contact-panel-card { padding: 1.5rem 1rem; }
   .lightbox-card { padding: 1rem; width: calc(100% - 1.5rem); }
   #lightbox-img { border-radius: 8px; }
+
+  /* Strip: tighter on very small screens */
+  .strip-preview-image { width: 56px; height: 56px; border-radius: 8px; }
+  .strip-node { gap: 0.6rem; padding: 0.65rem; }
+  .strip-details h4 { font-size: 0.82rem; }
+
+  /* Theater actions */
+  .theater-actions .btn-filled { padding: 0.75rem 1rem; font-size: 0.78rem; }
+
+  /* Carousel dots smaller */
+  .carousel-dot { width: 7px; height: 7px; }
+  .carousel-dot.active { width: 18px; }
 }
 
 /* ════════════════════════════════════════════
@@ -1635,30 +1669,6 @@ nav .brand-logo-img {
 
 
 /* ════════════════════════════════════════
-   PROJECT STRIP
-════════════════════════════════════════ */
-.preview-strip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-
-.strip-node {
-  background-color: var(--surface-panel);
-  border: 1px solid var(--border-subtle);
-  border-radius: 22px;
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.strip-node:hover { transform: translateY(-5px); border-color: var(--accent-orange); }
-.strip-node.active { border-color: var(--accent-orange); }
-.strip-preview-image { width: 90px; height: 90px; border-radius: 16px; overflow: hidden; flex-shrink: 0; }
-.strip-preview-image img { width: 100%; height: 100%; object-fit: cover; }
-.strip-details h4 { font-size: 1rem; margin-bottom: 0.35rem; }
-.strip-details p { font-size: 0.78rem; color: var(--text-muted); }
-.strip-project-label { font-size: 0.7rem; font-weight: 700; color: var(--accent-orange); }
-
-/* ════════════════════════════════════════
    OTHER PROJECTS
 ════════════════════════════════════════ */
 .other-projects-deck { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -1698,7 +1708,17 @@ nav .brand-logo-img {
 #other-projects-container { width: 100%; }
 .carousel-viewport { overflow: hidden; width: 100%; border-radius: 24px; }
 .carousel-track { display: flex; gap: 1.5rem; will-change: transform; }
+/* Desktop: 3 cards visible */
 .carousel-track .deck-card { flex: 0 0 calc((100% - 3rem) / 3); min-width: 0; }
+/* Tablet: 2 cards */
+@media (max-width: 1100px) {
+  .carousel-track .deck-card { flex: 0 0 calc((100% - 1.5rem) / 2); }
+}
+/* Mobile: 1 card, full width */
+@media (max-width: 768px) {
+  .carousel-track .deck-card { flex: 0 0 100%; }
+  .carousel-track { gap: 1rem; }
+}
 .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-top: 1.5rem; }
 
 .carousel-arrow {

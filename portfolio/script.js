@@ -449,7 +449,12 @@ function updateStripState() {
 // ════════════════════════════════════════════
 let carouselIndex = 0;
 let carouselAutoTimer = null;
-const CARDS_VISIBLE = 3;
+
+function getCardsVisible() {
+  if (window.innerWidth <= 768) return 1;
+  if (window.innerWidth <= 1100) return 2;
+  return 3;
+}
 
 function renderOtherProjects() {
 
@@ -493,10 +498,24 @@ function renderOtherProjects() {
   const viewport = wrapper.querySelector('.carousel-viewport');
   viewport.addEventListener('mouseenter', stopCarouselAuto);
   viewport.addEventListener('mouseleave', startCarouselAuto);
+
+  // Touch/swipe support for mobile
+  let touchStartX = 0;
+  viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  viewport.addEventListener('touchend', e => {
+    const dx = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 40) shiftCarousel(dx > 0 ? 1 : -1);
+  }, { passive: true });
+
+  // Recalculate on resize so card widths stay correct
+  window.addEventListener('resize', () => {
+    carouselIndex = 0;
+    applyCarouselPosition(false);
+  });
 }
 
 function buildCarouselDots() {
-  const maxIndex = DATA.otherProjects.length - CARDS_VISIBLE;
+  const maxIndex = DATA.otherProjects.length - getCardsVisible();
   const dotsEl = document.getElementById('carousel-dots');
   if (!dotsEl) return;
   dotsEl.innerHTML = Array.from({ length: maxIndex + 1 }, (_, i) =>
@@ -508,7 +527,7 @@ function applyCarouselPosition(animate = true) {
   const track = document.getElementById('carousel-track');
   if (!track) return;
   const cardWidth = track.querySelector('.deck-card')?.offsetWidth || 0;
-  const gap = 24;
+  const gap = window.innerWidth <= 768 ? 16 : 24;
   const offset = carouselIndex * (cardWidth + gap);
   track.style.transition = animate ? 'transform 0.5s cubic-bezier(0.4,0,0.2,1)' : 'none';
   track.style.transform = `translateX(-${offset}px)`;
@@ -516,7 +535,7 @@ function applyCarouselPosition(animate = true) {
 }
 
 function shiftCarousel(dir) {
-  const maxIndex = DATA.otherProjects.length - CARDS_VISIBLE;
+  const maxIndex = DATA.otherProjects.length - getCardsVisible();
   carouselIndex = Math.max(0, Math.min(carouselIndex + dir, maxIndex));
   applyCarouselPosition();
 }
@@ -529,7 +548,7 @@ function jumpCarousel(index) {
 function startCarouselAuto() {
   stopCarouselAuto();
   carouselAutoTimer = setInterval(() => {
-    const maxIndex = DATA.otherProjects.length - CARDS_VISIBLE;
+    const maxIndex = DATA.otherProjects.length - getCardsVisible();
     carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
     applyCarouselPosition();
   }, 3000);
